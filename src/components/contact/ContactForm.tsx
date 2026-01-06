@@ -47,7 +47,7 @@ export function ContactForm() {
           >
             <h2 className="text-[#003366] mb-4">Send Us a Message</h2>
             <p className="text-gray-600 mb-8">
-              Fill out the form below and our team will get back to you within 24 hours
+              Have a regulatory challenge? Tell us more about your needs and we'll have a specialist reach out within 24 hours to discuss how we can help.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-6">

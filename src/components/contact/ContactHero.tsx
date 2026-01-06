@@ -61,12 +61,11 @@ export function ContactHero() {
           </motion.div>
 
           <h1 className="text-white mb-6 max-w-4xl mx-auto">
-            Let's Start a Conversation
+            Ready to Strengthen Your Regulatory Position?
           </h1>
 
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Whether you're seeking regulatory guidance or exploring partnership opportunities, 
-            our team is here to help
+            Connect with our team to discuss your regulatory challenges, explore capacity building opportunities, or partner with us in strengthening healthcare systems across Africa
           </p>
         </motion.div>
 

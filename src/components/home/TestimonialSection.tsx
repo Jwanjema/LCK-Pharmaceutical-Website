@@ -29,10 +29,10 @@ export function TestimonialSection({ onNavigate }: TestimonialSectionProps) {
 
   const testimonials = [
     {
-      quote: "LCK's expertise was instrumental in our successful market entry across East Africa. Their deep understanding of regional regulatory requirements and strategic guidance saved us months of potential delays.",
+      quote: "LCK's WHO prequalification expertise was instrumental in securing approval for our essential medicine portfolio. Their knowledge of CTD requirements and regulatory harmonization across African markets saved us significant time and resources.",
       author: 'Dr. Sarah Kamau',
       title: 'Regulatory Affairs Director',
-      organization: 'Global Pharma Solutions',
+      organization: 'Pan-African Pharmaceuticals',
       image: 'https://images.unsplash.com/photo-1576669801838-1b1c52121e6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsYWJvcmF0b3J5JTIwYmlvdGVjaHxlbnwxfHx8fDE3NjQzMzQ0Njh8MA&ixlib=rb-4.1.0&q=80&w=1080',
     },
     {

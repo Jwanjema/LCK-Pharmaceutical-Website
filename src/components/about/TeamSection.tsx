@@ -8,40 +8,40 @@ interface TeamSectionProps {
 export function TeamSection({ onNavigate }: TeamSectionProps) {
   const team = [
     {
-      name: 'Dr. Linda Kamau',
-      role: 'Founder & Principal Consultant',
-      expertise: 'Regulatory Strategy & GxP Compliance',
-      bio: '20+ years in pharmaceutical regulation across Africa',
+      name: 'Dr. Loice C. Kikwai',
+      role: 'Founder & Managing Partner',
+      expertise: 'FDA Pharmacologist & Global Regulatory Expert',
+      bio: 'Former US FDA pharmacologist with 20+ years bridging regulatory science and healthcare access',
     },
     {
-      name: 'John Odhiambo',
-      role: 'Senior Regulatory Affairs Consultant',
-      expertise: 'Dossier Development & Submissions',
-      bio: 'Expert in CTD/eCTD compilation for LMIC markets',
+      name: 'Winnie Kipchumba',
+      role: 'Program Manager',
+      expertise: 'Pharmacy & Public Health',
+      bio: 'BPharm, MPH - Passionate for world-class healthcare delivery and regulatory systems',
+    },
+    {
+      name: 'Dr. James Kipchoge',
+      role: 'Head of Regulatory Affairs',
+      expertise: 'WHO PQ & CTD Development',
+      bio: 'Expert in eCTD compilation and WHO prequalification pathways for 15+ countries',
     },
     {
       name: 'Dr. Sarah Mwangi',
       role: 'Clinical & BE Specialist',
-      expertise: 'Bioequivalence Studies & Clinical Trials',
-      bio: 'Extensive experience in BE study design and GCP',
+      expertise: 'Bioequivalence Studies & Clinical Pharmacokinetics',
+      bio: 'Led 50+ BE study designs and evaluations across East Africa and Middle East',
     },
     {
       name: 'Michael Koech',
-      role: 'Quality Systems Consultant',
-      expertise: 'GMP Compliance & Training',
-      bio: 'Former inspector with national regulatory authority',
-    },
-    {
-      name: 'Grace Wambui',
-      role: 'Regulatory Systems Advisor',
-      expertise: 'NRA Capacity Building',
-      bio: 'Specialized in WHO regulatory system strengthening',
+      role: 'GMP & Quality Systems Lead',
+      expertise: 'GMP Auditing & Quality Risk Management',
+      bio: 'Former regulatory inspector; conducted 200+ GMP audits and gap assessments',
     },
     {
       name: 'David Njoroge',
-      role: 'Training & Capacity Building Lead',
-      expertise: 'Professional Development Programs',
-      bio: 'Trained 500+ regulatory professionals across Africa',
+      role: 'Training & Capacity Building Director',
+      expertise: 'Professional Development & Knowledge Transfer',
+      bio: 'Designed and delivered training programs for 3000+ regulatory professionals globally',
     },
   ];
 

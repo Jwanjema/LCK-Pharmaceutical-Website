@@ -61,8 +61,7 @@ export function MissionValues() {
               </div>
               <h3 className="text-white mb-4">Our Mission</h3>
               <p className="text-gray-200 text-lg leading-relaxed">
-                To advance global health by providing world-class regulatory and quality systems expertise that enables 
-                pharmaceutical innovation to reach patients in Africa and low- and middle-income countries.
+                To unlock access to affordable, quality healthcare in Africa and low- and middle-income countries by strengthening pharmaceutical regulatory systems, building capacity in national authorities, and supporting manufacturers in achieving regulatory excellence and global competitiveness.
               </p>
             </div>
           </motion.div>
@@ -82,8 +81,7 @@ export function MissionValues() {
               </div>
               <h3 className="text-[#003366] mb-4">Our Vision</h3>
               <p className="text-gray-700 text-lg leading-relaxed">
-                A world where robust regulatory systems and pharmaceutical quality standards ensure that all patients, 
-                regardless of geography, have timely access to safe, effective, and affordable medicines.
+                A world where no patient in Africa or LMICs is denied access to safe, effective medicines because of weak regulatory systems. Where every country has the capacity, infrastructure, and expertise to make informed regulatory decisions that protect public health and accelerate innovation.
               </p>
             </div>
           </motion.div>

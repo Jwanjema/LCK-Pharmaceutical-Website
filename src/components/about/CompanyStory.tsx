@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 
 export function CompanyStory() {
   const milestones = [
-    { year: '2015', title: 'Founded', description: 'LCK established in Nairobi, Kenya' },
-    { year: '2017', title: 'Regional Expansion', description: 'Operations extended across East Africa' },
-    { year: '2019', title: 'WHO Partnership', description: 'Became WHO technical partner' },
-    { year: '2021', title: '100+ Projects', description: 'Milestone achievement in successful submissions' },
-    { year: '2023', title: 'Pan-African', description: 'Expanded to 35+ countries across Africa' },
-    { year: '2025', title: 'Innovation Hub', description: 'Leading regulatory excellence in LMICs' },
+    { year: '2005', title: 'Founded by Dr. Loice C. Kikwai', description: 'FDA pharmacologist bridges regulatory science and healthcare access' },
+    { year: '2010', title: 'Expanded Globally', description: 'Operations extended to USA, Middle East, Africa, and Asia' },
+    { year: '2015', title: 'WHO Partnership', description: 'Designated WHO technical partner for regulatory capacity building' },
+    { year: '2020', title: '48+ Projects', description: 'Milestone: Successfully completed 48+ pharmaceutical projects' },
+    { year: '2023', title: '97% Success Rate', description: 'Achieved industry-leading 97% regulatory submission success rate' },
+    { year: '2025', title: 'Global Innovation Leader', description: 'Pioneering regulatory excellence across multiple continents' },
   ];
 
   return (
@@ -24,16 +24,16 @@ export function CompanyStory() {
             <h2 className="text-[#003366] mb-6">Our Story</h2>
             <div className="space-y-4 text-gray-700">
               <p>
-                LCK Pharmaceutical Consulting was founded with a clear mission: to strengthen regulatory systems and expand access to quality medicines across Africa and low- and middle-income countries (LMICs).
+                LCK Pharmaceutical Consulting was founded by Dr. Loice C. Kikwai, a former US FDA pharmacologist and global regulatory expert with over 20 years of experience in pharmaceutical regulation. Her vision was simple but powerful: to bridge the gap between regulatory science and global healthcare access.
               </p>
               <p>
-                Starting in Nairobi, Kenya, we recognized the critical gap between innovative pharmaceutical products and their availability to patients in emerging markets. Regulatory complexity, limited technical capacity, and resource constraints were preventing life-saving medicines from reaching those who needed them most.
+                Drawing from her extensive FDA background and deep understanding of regulatory pathways worldwide, Dr. Kikwai established LCK to transform complex regulatory challenges into accessible healthcare solutions. We work with pharmaceutical manufacturers, regulatory authorities, and NGOs across the USA, Middle East, Africa, and Asia.
               </p>
               <p>
-                Today, we are proud to have supported over 200 successful regulatory submissions, trained hundreds of professionals, and partnered with leading pharmaceutical companies, regulatory authorities, and international organizations to advance public health.
+                Our team's combined expertise spans diverse regulatory landscapes—from FDA pathways to African harmonization initiatives—offering unique insights and practical solutions tailored to each market's needs. We've successfully guided 48+ projects and achieved a 97% success rate in regulatory submissions.
               </p>
               <p>
-                Our team of experienced regulatory professionals brings together deep technical expertise, practical field experience, and a genuine commitment to making a difference in global health outcomes.
+                Today, we continue our mission: to empower healthcare systems globally, strengthen regulatory infrastructure, and ensure that patients everywhere have timely access to safe, effective, and affordable medicines.
               </p>
             </div>
           </motion.div>
@@ -53,8 +53,8 @@ export function CompanyStory() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/80 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8 text-white">
-                <div className="text-4xl mb-2">10+</div>
-                <div>Years of Excellence in Regulatory Consulting</div>
+                <div className="text-4xl mb-2">20+</div>
+                <div>Years of Regulatory Excellence in Africa & LMICs</div>
               </div>
             </div>
           </motion.div>

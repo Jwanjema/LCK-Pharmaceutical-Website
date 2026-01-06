@@ -54,7 +54,7 @@ export function OfficeLocations() {
         >
           <h2 className="text-[#003366] mb-4">Our Locations</h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            With offices across Africa, we're positioned to provide local expertise with global standards
+            With regional offices across Africa, we combine local market knowledge with global regulatory expertise to serve you better
           </p>
         </motion.div>
 

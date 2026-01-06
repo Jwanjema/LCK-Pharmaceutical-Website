@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight, Phone } from 'lucide-react';
 
 interface HeaderProps {
   currentPage: 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies';
@@ -76,11 +77,13 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
         {/* CTA Button */}
         <motion.button
           onClick={() => onNavigate('contact')}
-          className="hidden md:inline-flex px-4 md:px-6 py-2 bg-[#FFC300] text-[#003366] rounded-lg hover:bg-[#FF5733] hover:text-white transition-all duration-300 shadow-md text-sm"
-          whileHover={{ scale: 1.05 }}
+          className="hidden md:inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#003366] to-[#339966] text-white rounded-lg hover:shadow-xl transition-all duration-300 shadow-lg text-sm md:text-base font-semibold group"
+          whileHover={{ scale: 1.08, y: -2 }}
           whileTap={{ scale: 0.95 }}
         >
-          Partner With Us
+          <Phone className="w-4 h-4 md:w-5 md:h-5 group-hover:animate-pulse" />
+          <span>Partner With Us</span>
+          <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
         </motion.button>
 
         {/* Mobile Menu Button */}
@@ -138,9 +141,11 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                   onNavigate('contact');
                   setMobileOpen(false);
                 }}
-                className="text-left px-4 py-3 font-semibold text-[#003366]"
+                className="text-left px-4 py-4 font-semibold text-white bg-gradient-to-r from-[#003366] to-[#339966] flex items-center gap-2 hover:shadow-lg transition-shadow"
               >
+                <Phone className="w-4 h-4" />
                 Partner With Us
+                <ArrowRight className="w-4 h-4 ml-auto" />
               </button>
             </nav>
           </div>

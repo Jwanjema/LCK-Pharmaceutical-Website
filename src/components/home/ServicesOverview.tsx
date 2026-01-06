@@ -30,24 +30,24 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
   const services = [
     {
       icon: FileText,
-      title: 'Regulatory Strategy & Dossier Development',
-      description: 'Comprehensive CTD/eCTD preparation and strategic regulatory planning for market authorization.',
+      title: 'Regulatory Affairs',
+      description: 'Technical dossier support, market access strategy, and scientific writing for WHO PQ and national registrations.',
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'bg-blue-50',
       hoverColor: 'group-hover:bg-blue-500',
     },
     {
       icon: FlaskConical,
-      title: 'Clinical & Bioequivalence Studies',
-      description: 'Expert support for BE study design, protocol development, and regulatory submissions.',
+      title: 'Bioequivalence & Clinical PK',
+      description: 'Design, evaluation, and review of BE studies for WHO PQ and generic drug development.',
       color: 'from-purple-500 to-pink-500',
       bgColor: 'bg-purple-50',
       hoverColor: 'group-hover:bg-purple-500',
     },
     {
       icon: ShieldCheck,
-      title: 'GxP Compliance & Quality Systems',
-      description: 'Gap assessments, remediation plans, and ongoing compliance support for GMP, GLP, and GCP.',
+      title: 'GMP Auditing & GBT Advisory',
+      description: 'Mock audits, gap assessments, and WHO GBT maturity level preparation for manufacturers and NRAs.',
       color: 'from-green-500 to-emerald-500',
       bgColor: 'bg-green-50',
       hoverColor: 'group-hover:bg-green-500',
@@ -55,7 +55,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
     {
       icon: GraduationCap,
       title: 'Training & Capacity Building',
-      description: 'Customized training programs for manufacturers, NRAs, and regulatory professionals.',
+      description: 'Customized training programs for NRAs, manufacturers, and regulatory professionals in LMICs.',
       color: 'from-orange-500 to-yellow-500',
       bgColor: 'bg-orange-50',
       hoverColor: 'group-hover:bg-orange-500',
@@ -71,9 +71,9 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-[#003366] mb-4">Comprehensive Solutions for a Complex Landscape</h2>
+          <h2 className="text-[#003366] mb-4">Our Core Expertise</h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            End-to-end regulatory and quality support tailored to the unique challenges of emerging markets
+            With a robust suite of expertise ranging from regulatory systems strengthening and GMP auditing to clinical PK guidance and WHO prequalification preparation, we ensure your products move seamlessly from development to approval
           </p>
         </motion.div>
 
@@ -124,7 +124,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
               <div>
                 <h3 className="text-white mb-4">Regulatory Systems Strengthening</h3>
                 <p className="text-gray-200 mb-6">
-                  Working with NRAs, Ministries of Health, and international organizations to build robust regulatory frameworks aligned with WHO standards.
+                  Supporting NRAs in achieving WHO GBT maturity levels and long-term sustainability. Strategic guidance for governments, donors, and partners on pharmaceutical policy frameworks.
                 </p>
                 <button
                   onClick={() => onNavigate('expertise')}

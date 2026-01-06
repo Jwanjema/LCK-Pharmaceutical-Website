@@ -32,11 +32,11 @@ export function AboutHero() {
           </motion.div>
 
           <h1 className="text-white mb-6 max-w-4xl mx-auto">
-            Empowering Global Health Through Regulatory Excellence
+            Empowering Healthcare Through <span className="text-[#FFC300]">Regulatory Excellence</span>
           </h1>
 
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Since 2015, we've been bridging the gap between innovative pharmaceuticals and the patients who need them most
+            We envision a world where strong, transparent, and adaptive regulatory systems are the norm—not the exception. A world where no community is left behind because of regulatory bottlenecks, weak infrastructure, or lack of access to technical expertise.
           </p>
         </motion.div>
       </div>

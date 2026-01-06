@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
+import { ScrollToTop } from './components/ScrollToTop';
+import { ScrollProgress } from './components/ScrollProgress';
+import { CookieConsent } from './components/CookieConsent';
+import { NewsletterPopup } from './components/NewsletterPopup';
 import { HomePage } from './pages/HomePage';
 import { ExpertisePage } from './pages/ExpertisePage';
 import { AboutPage } from './pages/AboutPage';
@@ -21,6 +26,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ScrollProgress />
       <Header currentPage={currentPage} onNavigate={handleNavigate} />
 
       <main>
@@ -34,6 +40,10 @@ export default function App() {
       </main>
 
       <Footer />
+      <WhatsAppButton />
+      <ScrollToTop />
+      <CookieConsent />
+      <NewsletterPopup />
     </div>
   );
 }

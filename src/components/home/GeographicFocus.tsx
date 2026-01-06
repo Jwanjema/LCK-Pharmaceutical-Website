@@ -67,11 +67,11 @@ export function GeographicFocus() {
         >
           <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-[#339966]/10 rounded-full">
             <Globe2 className="w-5 h-5 text-[#339966]" />
-            <span className="text-[#339966]">Our Global Reach</span>
+            <span className="text-[#339966]">Who We Work With</span>
           </div>
-          <h2 className="text-[#003366] mb-4">Global Reach, Local Impact</h2>
+          <h2 className="text-[#003366] mb-4">Who We Work With & the Value We Provide</h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            Strengthening regulatory systems and local manufacturing capability across key regions
+            At LCK, we work with pharmaceutical companies, manufacturers, and national regulatory authorities in low- and middle-income countries. Our team brings extensive expertise in regulatory affairs, bioequivalence, GMP auditing, and policy advisory across Africa and beyond.
           </p>
         </motion.div>
 

@@ -2,9 +2,9 @@ import { Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 export function Footer() {
   const quickLinks = [
-    { label: 'Regulatory Strategy', href: '#' },
-    { label: 'Clinical & Bioequivalence', href: '#' },
-    { label: 'GxP Compliance', href: '#' },
+    { label: 'Regulatory Affairs', href: '#' },
+    { label: 'Bioequivalence & Clinical PK', href: '#' },
+    { label: 'GMP Auditing & GBT Advisory', href: '#' },
     { label: 'Training & Capacity Building', href: '#' },
     { label: 'About Us', href: '#' },
     { label: 'Resources', href: '#' },
@@ -34,7 +34,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-sm text-gray-300 mb-4">
-              Pioneering regulatory excellence for global health advancement across Africa, the Middle East, and LMICs.
+              Strengthening regulatory systems and accelerating access to quality medicines through WHO prequalification, GBT maturity assessments, and regulatory capacity building.
             </p>
             <div className="flex gap-3">
               <button
@@ -123,7 +123,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
-            © 2025 LCK Pharmaceutical Consulting. All rights reserved.
+            © {new Date().getFullYear()} LCK Pharmaceutical Consulting. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-gray-400">
             <button className="hover:text-[#FFC300] transition-colors">Privacy Policy</button>
