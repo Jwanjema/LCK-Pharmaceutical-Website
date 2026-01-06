@@ -37,7 +37,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#003366] to-[#339966] rounded-lg flex items-center justify-center">
@@ -112,67 +112,37 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
           )}
         </button>
 
-        {/* Mobile Slide-in Menu */}
+        {/* Mobile Dropdown Menu */}
         {mobileOpen && (
-          <div id="mobile-menu" className="md:hidden fixed inset-0 z-50">
-            <div
-              className="absolute inset-0 bg-black/40"
-              onClick={() => setMobileOpen(false)}
-              aria-hidden
-            />
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.22 }}
-              className="absolute right-0 top-0 h-full w-4/5 sm:w-3/4 max-w-xs bg-white shadow-xl p-4 sm:p-6 overflow-auto"
-            >
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#003366] to-[#339966] rounded-lg flex items-center justify-center">
-                    <span className="text-white">LCK</span>
-                  </div>
-                  <div>
-                    <div className="text-[#003366]">LCK Pharmaceutical</div>
-                    <div className="text-[#339966] text-sm">Consulting</div>
-                  </div>
-                </div>
-                <button onClick={() => setMobileOpen(false)} className="p-2 text-gray-600">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-
-              <nav className="flex flex-col gap-3">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => {
-                      onNavigate(item.id);
-                      setMobileOpen(false);
-                    }}
-                    className={`text-left px-3 py-3 rounded-lg transition-colors ${
-                      currentPage === item.id ? 'text-[#003366] font-semibold' : 'text-gray-700'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </nav>
-
-              <div className="mt-6">
+          <div
+            id="mobile-menu"
+            className="md:hidden absolute left-0 right-0 top-full mt-3 bg-white border border-gray-200 rounded-xl shadow-lg z-40"
+          >
+            <nav className="flex flex-col divide-y divide-gray-100">
+              {navItems.map((item) => (
                 <button
+                  key={item.id}
                   onClick={() => {
-                    onNavigate('contact');
+                    onNavigate(item.id);
                     setMobileOpen(false);
                   }}
-                  className="w-full px-4 py-3 bg-[#FFC300] text-[#003366] rounded-lg shadow-md"
+                  className={`text-left px-4 py-3 transition-colors ${
+                    currentPage === item.id ? 'text-[#003366] font-semibold' : 'text-gray-700'
+                  }`}
                 >
-                  Partner With Us
+                  {item.label}
                 </button>
-              </div>
-            </motion.div>
+              ))}
+              <button
+                onClick={() => {
+                  onNavigate('contact');
+                  setMobileOpen(false);
+                }}
+                className="text-left px-4 py-3 font-semibold text-[#003366]"
+              >
+                Partner With Us
+              </button>
+            </nav>
           </div>
         )}
       </div>

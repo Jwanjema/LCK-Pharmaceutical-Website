@@ -1,5 +1,4 @@
-const puppeteer = require('puppeteer');
-const fs = require('fs');
+import { launch } from 'puppeteer';
 
 async function capture(name, page, options = {}) {
   const path = `/tmp/pharma_${name}.png`;
@@ -9,7 +8,7 @@ async function capture(name, page, options = {}) {
 
 (async () => {
   const url = 'http://localhost:3000';
-  const browser = await puppeteer.launch({ args: ['--no-sandbox','--disable-setuid-sandbox'] });
+  const browser = await launch({ args: ['--no-sandbox','--disable-setuid-sandbox'] });
   const page = await browser.newPage();
 
   page.on('console', (msg) => console.log('PAGE LOG:', msg.text()));
