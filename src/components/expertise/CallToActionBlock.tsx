@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
 
-export function CallToActionBlock() {
+interface CallToActionBlockProps {
+  onNavigate: (page: string) => void;
+}
+
+export function CallToActionBlock({ onNavigate }: CallToActionBlockProps) {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -40,6 +44,7 @@ export function CallToActionBlock() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <motion.button
+                  onClick={() => onNavigate('contact')}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 bg-[#FFC300] text-[#003366] rounded-lg shadow-xl hover:bg-white transition-all flex items-center justify-center gap-2 group"
@@ -48,6 +53,7 @@ export function CallToActionBlock() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
                 <motion.button
+                  onClick={() => onNavigate('contact')}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white/10 transition-all"

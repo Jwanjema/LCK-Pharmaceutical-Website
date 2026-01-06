@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface HeaderProps {
-  currentPage: 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies' | 'service-details';
+  currentPage: 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies';
   onNavigate: (page: string) => void;
 }
 
@@ -25,7 +25,6 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
     { id: 'resources', label: 'Resources' },
     { id: 'team', label: 'Team' },
     { id: 'case-studies', label: 'Case Studies' },
-    { id: 'service-details', label: 'Services' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -38,25 +37,25 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-[#003366] to-[#339966] rounded-lg flex items-center justify-center">
-            <span className="text-white">LCK</span>
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#003366] to-[#339966] rounded-lg flex items-center justify-center">
+            <span className="text-white text-sm md:text-base">LCK</span>
           </div>
-          <div>
-            <div className="text-[#003366]">LCK Pharmaceutical</div>
-            <div className="text-[#339966] text-sm">Consulting</div>
+          <div className="hidden sm:block">
+            <div className="text-[#003366] text-sm md:text-base">LCK Pharmaceutical</div>
+            <div className="text-[#339966] text-xs md:text-sm">Consulting</div>
           </div>
         </div>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className={`relative py-2 transition-colors ${
+              className={`relative py-2 text-sm transition-colors ${
                 currentPage === item.id
                   ? 'text-[#003366]'
                   : 'text-gray-600 hover:text-[#003366]'
@@ -76,7 +75,8 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
 
         {/* CTA Button */}
         <motion.button
-          className="hidden md:block px-6 py-2.5 bg-[#FFC300] text-[#003366] rounded-lg hover:bg-[#FF5733] hover:text-white transition-all duration-300 shadow-md"
+          onClick={() => onNavigate('contact')}
+          className="hidden md:inline-flex px-4 md:px-6 py-2 bg-[#FFC300] text-[#003366] rounded-lg hover:bg-[#FF5733] hover:text-white transition-all duration-300 shadow-md text-sm"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -88,6 +88,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
+          aria-label="Toggle mobile menu"
           className="md:hidden p-2 text-[#003366]"
         >
           {mobileOpen ? (
@@ -124,7 +125,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.22 }}
-              className="absolute right-0 top-0 h-full w-3/4 max-w-xs bg-white shadow-xl p-6 overflow-auto"
+              className="absolute right-0 top-0 h-full w-4/5 sm:w-3/4 max-w-xs bg-white shadow-xl p-4 sm:p-6 overflow-auto"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
@@ -162,7 +163,10 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
 
               <div className="mt-6">
                 <button
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => {
+                    onNavigate('contact');
+                    setMobileOpen(false);
+                  }}
                   className="w-full px-4 py-3 bg-[#FFC300] text-[#003366] rounded-lg shadow-md"
                 >
                   Partner With Us

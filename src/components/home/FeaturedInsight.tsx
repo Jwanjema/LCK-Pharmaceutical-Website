@@ -32,31 +32,31 @@ export function FeaturedInsight() {
 
   return (
     <section id="insights" ref={ref} className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="bg-gradient-to-br from-[#003366] via-[#003366] to-[#339966] rounded-3xl overflow-hidden shadow-2xl">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Content Side */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
-              className="p-8 md:p-12"
+              className="p-6 md:p-12"
             >
               <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-[#FFC300]/20 rounded-full">
                 <TrendingUp className="w-4 h-4 text-[#FFC300]" />
                 <span className="text-[#FFC300] text-sm">Free Resource</span>
               </div>
 
-              <h2 className="text-white mb-4">
+              <h2 className="text-white mb-3 text-2xl md:text-3xl">
                 Stay Ahead: Download Our Latest Regulatory Guide
               </h2>
 
-              <p className="text-gray-200 mb-6 text-lg">
+              <p className="text-gray-200 mb-6 text-base md:text-lg">
                 Access our comprehensive 2025 guide to navigating regulatory submissions in African markets. 
                 Essential reading for pharmaceutical companies and regulatory professionals.
               </p>
 
-              <div className="space-y-3 mb-8">
+              <div className="space-y-3 mb-6">
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={index}
@@ -74,7 +74,7 @@ export function FeaturedInsight() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-[#FFC300] text-[#003366] rounded-lg shadow-xl hover:bg-white transition-all flex items-center gap-3 group"
+                className="px-6 py-3 bg-[#FFC300] text-[#003366] rounded-lg shadow-xl hover:bg-white transition-all flex items-center gap-2 group text-sm md:text-base"
               >
                 <Download className="w-5 h-5 group-hover:animate-bounce" />
                 <span>Get Your Free Guide Now</span>
@@ -90,7 +90,7 @@ export function FeaturedInsight() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative p-8 md:p-12"
+              className="relative p-4 md:p-12"
             >
               {/* E-book Cover Mockup */}
               <div className="relative">
@@ -106,13 +106,13 @@ export function FeaturedInsight() {
                   className="relative z-10"
                 >
                   <div className="bg-white rounded-xl shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <div className="aspect-[3/4] bg-gradient-to-br from-white to-gray-100 p-8 flex flex-col">
+                    <div className="aspect-[3/4] bg-gradient-to-br from-white to-gray-100 p-6 md:p-8 flex flex-col">
                       <div className="mb-6">
-                        <div className="w-16 h-16 bg-gradient-to-br from-[#003366] to-[#339966] rounded-lg flex items-center justify-center mb-4">
-                          <FileText className="w-8 h-8 text-white" />
+                        <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#003366] to-[#339966] rounded-lg flex items-center justify-center mb-3 md:mb-4">
+                          <FileText className="w-7 h-7 md:w-8 md:h-8 text-white" />
                         </div>
                         <div className="text-xs text-[#339966] mb-2">2025 EDITION</div>
-                        <h3 className="text-[#003366] text-xl mb-2">
+                        <h3 className="text-[#003366] text-lg md:text-xl mb-2">
                           Regulatory Excellence in African Markets
                         </h3>
                         <div className="text-sm text-gray-600">

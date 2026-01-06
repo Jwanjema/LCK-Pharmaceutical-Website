@@ -5,7 +5,11 @@ import { ServiceSection } from '../components/expertise/ServiceNavigation';
 import { ClientFocus } from '../components/expertise/ClientFocus';
 import { CallToActionBlock } from '../components/expertise/CallToActionBlock';
 
-export function ExpertisePage() {
+interface ExpertisePageProps {
+  onNavigate: (page: string) => void;
+}
+
+export function ExpertisePage({ onNavigate }: ExpertisePageProps) {
   const [activeSection, setActiveSection] = useState('regulatory');
 
   useEffect(() => {
@@ -49,56 +53,53 @@ export function ExpertisePage() {
 
       <div className="bg-[#F0F2F5] py-12">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex gap-8">
-            <ServicesNavigation
-              activeSection={activeSection}
-              onSectionChange={handleSectionChange}
-            />
-
-            <div className="flex-1">
-              {/* Service 1: Regulatory Strategy */}
-              <ServiceSection
-                id="regulatory"
-                title="Regulatory Strategy & Dossier Development"
-                description="Comprehensive regulatory planning and dossier preparation services aligned with international standards. We guide pharmaceutical companies through the complexities of market authorization across multiple jurisdictions, ensuring compliance and accelerating approval timelines."
-                offerings={[
-                  'CTD/eCTD compilation and formatting to ICH standards',
-                  'Strategic regulatory pathway analysis for target markets',
-                  'Gap analysis and remediation planning for existing dossiers',
-                  'Post-approval variation and life-cycle management support',
-                  'Regional submission strategies for Africa and LMIC markets',
-                  'Regulatory intelligence and competitive landscape analysis',
-                ]}
-                benefits={[
-                  'Reduced time to market authorization',
-                  'Higher first-time approval rates',
-                  'Cost-effective submission strategies',
-                  'Expert navigation of regional requirements',
-                  'Ongoing regulatory support and consultation',
-                ]}
-                visual={
-                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8">
-                    <h4 className="text-[#003366] mb-6 text-center">Our Dossier Development Process</h4>
-                    <div className="grid md:grid-cols-4 gap-4">
-                      {[
-                        { step: '1', title: 'Assessment', desc: 'Document review & gap analysis' },
-                        { step: '2', title: 'Strategy', desc: 'Regulatory pathway planning' },
-                        { step: '3', title: 'Compilation', desc: 'CTD/eCTD assembly' },
-                        { step: '4', title: 'Submission', desc: 'Filing & follow-up' },
-                      ].map((item, index) => (
-                        <div key={index} className="bg-white rounded-lg p-4 text-center shadow-sm">
-                          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white mx-auto mb-2">
-                            {item.step}
-                          </div>
-                          <div className="text-sm text-[#003366] mb-1">{item.title}</div>
-                          <div className="text-xs text-gray-600">{item.desc}</div>
-                        </div>
-                      ))}
+          <ServicesNavigation
+            activeSection={activeSection}
+            onSectionChange={handleSectionChange}
+          />
+          {/* Service 1: Regulatory Strategy */}
+          <ServiceSection
+            id="regulatory"
+            title="Regulatory Strategy & Dossier Development"
+            description="Comprehensive regulatory planning and dossier preparation services aligned with international standards. We guide pharmaceutical companies through the complexities of market authorization across multiple jurisdictions, ensuring compliance and accelerating approval timelines."
+            offerings={[
+              'CTD/eCTD compilation and formatting to ICH standards',
+              'Strategic regulatory pathway analysis for target markets',
+              'Gap analysis and remediation planning for existing dossiers',
+              'Post-approval variation and life-cycle management support',
+              'Regional submission strategies for Africa and LMIC markets',
+              'Regulatory intelligence and competitive landscape analysis',
+            ]}
+            benefits={[
+              'Reduced time to market authorization',
+              'Higher first-time approval rates',
+              'Cost-effective submission strategies',
+              'Expert navigation of regional requirements',
+              'Ongoing regulatory support and consultation',
+            ]}
+            visual={
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8">
+                <h4 className="text-[#003366] mb-6 text-center">Our Dossier Development Process</h4>
+                <div className="grid md:grid-cols-4 gap-4">
+                  {[
+                    { step: '1', title: 'Assessment', desc: 'Document review & gap analysis' },
+                    { step: '2', title: 'Strategy', desc: 'Regulatory pathway planning' },
+                    { step: '3', title: 'Compilation', desc: 'CTD/eCTD assembly' },
+                    { step: '4', title: 'Submission', desc: 'Filing & follow-up' },
+                  ].map((item, index) => (
+                    <div key={index} className="bg-white rounded-lg p-4 text-center shadow-sm">
+                      <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white mx-auto mb-2">
+                        {item.step}
+                      </div>
+                      <div className="text-sm text-[#003366] mb-1">{item.title}</div>
+                      <div className="text-xs text-gray-600">{item.desc}</div>
                     </div>
-                  </div>
-                }
-                contexts={['WHO Standards', 'ICH Guidelines', 'EMA Requirements', 'US FDA', 'African NRAs']}
-              />
+                  ))}
+                </div>
+              </div>
+            }
+            contexts={['WHO Standards', 'ICH Guidelines', 'EMA Requirements', 'US FDA', 'African NRAs']}
+          />
 
               {/* Service 2: Clinical & Bioequivalence */}
               <ServiceSection
@@ -275,13 +276,11 @@ export function ExpertisePage() {
                 }
                 contexts={['WHO Training Materials', 'ICH Guidelines', 'Regional Requirements', 'GxP Standards']}
               />
-            </div>
-          </div>
         </div>
       </div>
 
       <ClientFocus />
-      <CallToActionBlock />
+      <CallToActionBlock onNavigate={onNavigate} />
     </div>
   );
 }

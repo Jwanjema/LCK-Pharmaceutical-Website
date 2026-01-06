@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import { FileText, FlaskConical, ShieldCheck, GraduationCap, ArrowRight } from 'lucide-react';
 import { useRef, useEffect, useState } from 'react';
 
-export function ServicesOverview() {
+interface ServicesOverviewProps {
+  onNavigate: (page: string) => void;
+}
+
+export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
   const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -73,7 +77,7 @@ export function ServicesOverview() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -95,7 +99,10 @@ export function ServicesOverview() {
                   <h3 className="text-[#003366] mb-3">{service.title}</h3>
                   <p className="text-gray-600 mb-6 flex-grow">{service.description}</p>
 
-                  <button className="flex items-center gap-2 text-[#339966] group-hover:text-[#FFC300] transition-colors">
+                  <button
+                    onClick={() => onNavigate('expertise')}
+                    className="flex items-center gap-2 text-[#339966] group-hover:text-[#FFC300] transition-colors text-sm"
+                  >
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -119,7 +126,10 @@ export function ServicesOverview() {
                 <p className="text-gray-200 mb-6">
                   Working with NRAs, Ministries of Health, and international organizations to build robust regulatory frameworks aligned with WHO standards.
                 </p>
-                <button className="px-6 py-3 bg-[#FFC300] text-[#003366] rounded-lg hover:bg-white transition-colors shadow-lg flex items-center gap-2">
+                <button
+                  onClick={() => onNavigate('expertise')}
+                  className="px-6 py-3 bg-[#FFC300] text-[#003366] rounded-lg hover:bg-white transition-colors shadow-lg flex items-center gap-2"
+                >
                   <span>Explore Our Impact</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>

@@ -28,7 +28,7 @@ export function ServiceSection({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="scroll-mt-32 bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-8"
+      className="scroll-mt-32 bg-white rounded-2xl shadow-lg p-6 md:p-12 mb-8"
     >
       {/* Header */}
       <div className="mb-8">
@@ -36,7 +36,7 @@ export function ServiceSection({
         <p className="text-gray-700 text-lg leading-relaxed">{description}</p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8">
         {/* Left Column - Offerings */}
         <div>
           <h3 className="text-[#003366] mb-4">Our Approach</h3>

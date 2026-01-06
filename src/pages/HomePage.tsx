@@ -5,16 +5,20 @@ import { GeographicFocus } from '../components/home/GeographicFocus';
 import { FeaturedInsight } from '../components/home/FeaturedInsight';
 import { TestimonialSection } from '../components/home/TestimonialSection';
 
-export function HomePage() {
+interface HomePageProps {
+  onNavigate: (page: string) => void;
+}
+
+export function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div>
       {/* Sidebar demo removed after QA */}
-      <HeroSection />
+      <HeroSection onNavigate={onNavigate} />
       <TrustSection />
-      <ServicesOverview />
+      <ServicesOverview onNavigate={onNavigate} />
       <GeographicFocus />
       <FeaturedInsight />
-      <TestimonialSection />
+      <TestimonialSection onNavigate={onNavigate} />
     </div>
   );
 }

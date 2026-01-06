@@ -3,13 +3,17 @@ import { FeaturedResources } from '../components/resources/FeaturedResources';
 import { CaseStudies } from '../components/resources/CaseStudies';
 import { WebinarsInsights } from '../components/resources/WebinarsInsights';
 
-export function ResourcesPage() {
+interface ResourcesPageProps {
+  onNavigate: (page: string) => void;
+}
+
+export function ResourcesPage({ onNavigate }: ResourcesPageProps) {
   return (
     <div>
       <ResourcesHero />
       <FeaturedResources />
-      <CaseStudies />
-      <WebinarsInsights />
+      <CaseStudies onNavigate={onNavigate} />
+      <WebinarsInsights onNavigate={onNavigate} />
     </div>
   );
 }

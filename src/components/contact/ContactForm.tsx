@@ -35,9 +35,9 @@ export function ContactForm() {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+    <section className="py-12 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -90,7 +90,7 @@ export function ContactForm() {
               </div>
 
               {/* Company & Phone */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-700 mb-2">Company</label>
                   <div className="relative">
@@ -188,7 +188,7 @@ export function ContactForm() {
             className="space-y-6"
           >
             {/* Why Contact Us */}
-            <div className="bg-gradient-to-br from-[#003366] to-[#339966] rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-br from-[#003366] to-[#339966] rounded-2xl p-6 md:p-8 text-white">
               <h3 className="text-white mb-6">Why Partner with LCK?</h3>
               <div className="space-y-4">
                 {[
@@ -209,7 +209,7 @@ export function ContactForm() {
             </div>
 
             {/* Office Hours */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200">
               <h3 className="text-[#003366] mb-6">Office Hours</h3>
               <div className="space-y-3">
                 <div className="flex justify-between pb-3 border-b border-gray-200">
@@ -231,7 +231,7 @@ export function ContactForm() {
             </div>
 
             {/* Follow Us */}
-            <div className="bg-[#F0F2F5] rounded-2xl p-8">
+            <div className="bg-[#F0F2F5] rounded-2xl p-6 md:p-8">
               <h3 className="text-[#003366] mb-6">Follow Us</h3>
               <div className="flex gap-4">
                 {['LinkedIn', 'Twitter', 'Facebook'].map((platform, index) => (

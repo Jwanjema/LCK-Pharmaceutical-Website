@@ -8,11 +8,11 @@ import { ResourcesPage } from './pages/ResourcesPage';
 import { ContactPage } from './pages/ContactPage';
 import { TeamPage } from './pages/TeamPage';
 import { CaseStudiesPage } from './pages/CaseStudiesPage';
-import { ServiceDetailsPage } from './pages/ServiceDetailsPage';
+// ServiceDetailsPage removed per request
 
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies' | 'service-details'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies'>('home');
 
   const handleNavigate = (page: string) => {
     setCurrentPage(page as any);
@@ -24,13 +24,12 @@ export default function App() {
       <Header currentPage={currentPage} onNavigate={handleNavigate} />
 
       <main>
-        {currentPage === 'home' && <HomePage />}
-        {currentPage === 'expertise' && <ExpertisePage />}
-        {currentPage === 'about' && <AboutPage />}
-        {currentPage === 'resources' && <ResourcesPage />}
-        {currentPage === 'team' && <TeamPage />}
-        {currentPage === 'case-studies' && <CaseStudiesPage />}
-        {currentPage === 'service-details' && <ServiceDetailsPage />}
+        {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
+        {currentPage === 'expertise' && <ExpertisePage onNavigate={handleNavigate} />}
+        {currentPage === 'about' && <AboutPage onNavigate={handleNavigate} />}
+        {currentPage === 'resources' && <ResourcesPage onNavigate={handleNavigate} />}
+        {currentPage === 'team' && <TeamPage onNavigate={handleNavigate} />}
+        {currentPage === 'case-studies' && <CaseStudiesPage onNavigate={handleNavigate} />}
         {currentPage === 'contact' && <ContactPage />}
       </main>
 

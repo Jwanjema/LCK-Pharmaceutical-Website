@@ -30,7 +30,7 @@ export function ContactHero() {
   ];
 
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-20 md:pt-32 pb-12 md:pb-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#003366]/95 via-[#339966]/90 to-[#003366]/95 z-10" />
@@ -38,11 +38,13 @@ export function ContactHero() {
           src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250YWN0JTIwdXMlMjBidXNpbmVzc3xlbnwxfHx8fDE3NjQzOTUyMjF8MA&ixlib=rb-4.1.0&q=80&w=1080"
           alt="Contact Us"
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,7 +71,7 @@ export function ContactHero() {
         </motion.div>
 
         {/* Quick Contact Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             return (

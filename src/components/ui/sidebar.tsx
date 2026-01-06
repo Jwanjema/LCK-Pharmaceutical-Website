@@ -44,6 +44,8 @@ type SidebarContextProps = {
 
 const SidebarContext = React.createContext<SidebarContextProps | null>(null);
 
+type WithoutRef<T> = Omit<T, "ref">;
+
 function useSidebar() {
   const context = React.useContext(SidebarContext);
   if (!context) {
@@ -397,7 +399,7 @@ function SidebarGroupLabel({
   className,
   asChild = false,
   ...props
-}: React.ComponentProps<"div"> & { asChild?: boolean }) {
+}: WithoutRef<React.ComponentProps<"div">> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "div";
 
   return (
@@ -418,7 +420,7 @@ function SidebarGroupAction({
   className,
   asChild = false,
   ...props
-}: React.ComponentProps<"button"> & { asChild?: boolean }) {
+}: WithoutRef<React.ComponentProps<"button">> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "button";
 
   return (
@@ -503,7 +505,7 @@ function SidebarMenuButton({
   tooltip,
   className,
   ...props
-}: React.ComponentProps<"button"> & {
+}: WithoutRef<React.ComponentProps<"button">> & {
   asChild?: boolean;
   isActive?: boolean;
   tooltip?: string | React.ComponentProps<typeof TooltipContent>;
@@ -550,7 +552,7 @@ function SidebarMenuAction({
   asChild = false,
   showOnHover = false,
   ...props
-}: React.ComponentProps<"button"> & {
+}: WithoutRef<React.ComponentProps<"button">> & {
   asChild?: boolean;
   showOnHover?: boolean;
 }) {
@@ -672,7 +674,7 @@ function SidebarMenuSubButton({
   isActive = false,
   className,
   ...props
-}: React.ComponentProps<"a"> & {
+}: WithoutRef<React.ComponentProps<"a">> & {
   asChild?: boolean;
   size?: "sm" | "md";
   isActive?: boolean;

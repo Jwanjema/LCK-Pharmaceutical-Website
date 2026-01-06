@@ -2,11 +2,15 @@ import React from 'react';
 import { AboutHero } from '../components/about/AboutHero';
 import { TeamSection } from '../components/about/TeamSection';
 
-export function TeamPage() {
+interface TeamPageProps {
+  onNavigate: (page: string) => void;
+}
+
+export function TeamPage({ onNavigate }: TeamPageProps) {
   return (
     <div>
       <AboutHero />
-      <TeamSection />
+      <TeamSection onNavigate={onNavigate} />
     </div>
   );
 }

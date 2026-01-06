@@ -2,11 +2,15 @@ import React from 'react';
 import { ResourcesHero } from '../components/resources/ResourcesHero';
 import { CaseStudies } from '../components/resources/CaseStudies';
 
-export function CaseStudiesPage() {
+interface CaseStudiesPageProps {
+  onNavigate: (page: string) => void;
+}
+
+export function CaseStudiesPage({ onNavigate }: CaseStudiesPageProps) {
   return (
     <div>
       <ResourcesHero />
-      <CaseStudies />
+      <CaseStudies onNavigate={onNavigate} />
     </div>
   );
 }

@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
 import { Linkedin, Mail } from 'lucide-react';
 
-export function TeamSection() {
+interface TeamSectionProps {
+  onNavigate: (page: string) => void;
+}
+
+export function TeamSection({ onNavigate }: TeamSectionProps) {
   const team = [
     {
       name: 'Dr. Linda Kamau',
@@ -42,8 +46,8 @@ export function TeamSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-12 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +62,7 @@ export function TeamSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {team.map((member, index) => (
             <motion.div
               key={index}
@@ -72,7 +76,7 @@ export function TeamSection() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all border border-gray-200 hover:border-[#339966]">
                 {/* Avatar */}
                 <div className="aspect-square bg-gradient-to-br from-[#003366] to-[#339966] flex items-center justify-center relative overflow-hidden">
-                  <div className="text-6xl text-white/80">
+                  <div className="text-5xl md:text-6xl text-white/80">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -87,7 +91,7 @@ export function TeamSection() {
                 </div>
 
                 {/* Info */}
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <h4 className="text-[#003366] mb-1">{member.name}</h4>
                   <div className="text-[#339966] mb-2">{member.role}</div>
                   <div className="text-sm text-gray-600 mb-3">
@@ -116,6 +120,7 @@ export function TeamSection() {
             If you're interested in making a real impact, we'd love to hear from you.
           </p>
           <motion.button
+            onClick={() => onNavigate('contact')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-[#FFC300] text-[#003366] rounded-lg shadow-lg hover:bg-[#FF5733] hover:text-white transition-all"

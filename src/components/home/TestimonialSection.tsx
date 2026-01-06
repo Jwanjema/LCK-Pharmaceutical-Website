@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import { useRef, useEffect, useState } from 'react';
 
-export function TestimonialSection() {
+interface TestimonialSectionProps {
+  onNavigate: (page: string) => void;
+}
+
+export function TestimonialSection({ onNavigate }: TestimonialSectionProps) {
   const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -41,8 +45,8 @@ export function TestimonialSection() {
   ];
 
   return (
-    <section ref={ref} className="py-20 bg-[#F0F2F5]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section ref={ref} className="py-12 md:py-20 bg-[#F0F2F5]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -55,7 +59,7 @@ export function TestimonialSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -63,11 +67,11 @@ export function TestimonialSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all"
+              className="bg-white rounded-2xl p-6 md:p-8 shadow-md hover:shadow-2xl transition-all"
             >
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#003366] to-[#339966] rounded-full flex items-center justify-center flex-shrink-0">
-                  <Quote className="w-8 h-8 text-white" />
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#003366] to-[#339966] rounded-full flex items-center justify-center flex-shrink-0">
+                  <Quote className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
                 <div className="flex-grow">
                   <div className="flex gap-1 mb-2">
@@ -84,13 +88,13 @@ export function TestimonialSection() {
                 </div>
               </div>
 
-              <p className="text-gray-700 mb-6 text-lg leading-relaxed italic">
+              <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed italic">
                 "{testimonial.quote}"
               </p>
 
               <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#003366]/20 to-[#339966]/20 rounded-full flex items-center justify-center">
-                  <span className="text-[#003366]">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#003366]/20 to-[#339966]/20 rounded-full flex items-center justify-center">
+                  <span className="text-[#003366] text-sm md:text-base">
                     {testimonial.author.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>
@@ -118,6 +122,7 @@ export function TestimonialSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
+                onClick={() => onNavigate('contact')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-[#FFC300] text-[#003366] rounded-lg shadow-lg hover:bg-[#FF5733] hover:text-white transition-all"
@@ -125,6 +130,7 @@ export function TestimonialSection() {
                 Request a Consultation
               </motion.button>
               <motion.button
+                onClick={() => onNavigate('case-studies')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-transparent border-2 border-[#003366] text-[#003366] rounded-lg hover:bg-[#003366] hover:text-white transition-all"

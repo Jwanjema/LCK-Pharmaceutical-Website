@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onNavigate: (page: string) => void;
+}
+
+export function HeroSection({ onNavigate }: HeroSectionProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#003366]/95 via-[#003366]/90 to-[#339966]/85 z-10" />
@@ -11,30 +14,36 @@ export function HeroSection() {
           src="https://images.unsplash.com/photo-1576669801838-1b1c52121e6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsYWJvcmF0b3J5JTIwYmlvdGVjaHxlbnwxfHx8fDE3NjQzMzQ0Njh8MA&ixlib=rb-4.1.0&q=80&w=1080"
           alt="Modern Laboratory"
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
       {/* Animated Particle Effect */}
       <div className="absolute inset-0 z-10 opacity-30">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[#FFC300] rounded-full"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            transition={{
-              duration: 20 + Math.random() * 10,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          />
-        ))}
+        {(() => {
+          const winW = typeof window !== 'undefined' ? window.innerWidth : 1024;
+          const winH = typeof window !== 'undefined' ? window.innerHeight : 800;
+          return [...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-[#FFC300] rounded-full"
+              initial={{
+                x: Math.random() * winW,
+                y: Math.random() * winH,
+              }}
+              animate={{
+                x: Math.random() * winW,
+                y: Math.random() * winH,
+              }}
+              transition={{
+                duration: 20 + Math.random() * 10,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+          ));
+        })()}
       </div>
 
       {/* Content */}
@@ -62,22 +71,22 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <motion.a
-              href="#services"
-              className="px-8 py-4 bg-[#FFC300] text-[#003366] rounded-lg shadow-xl hover:shadow-2xl transition-all inline-block"
+            <motion.button
+              onClick={() => onNavigate('expertise')}
+              className="px-8 py-4 bg-[#FFC300] text-[#003366] rounded-lg shadow-xl hover:shadow-2xl transition-all"
               whileHover={{ scale: 1.05, backgroundColor: '#FF5733', color: '#ffffff' }}
               whileTap={{ scale: 0.95 }}
             >
               Explore Our Expertise
-            </motion.a>
-            <motion.a
-              href="#insights"
-              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white/10 transition-all inline-block"
+            </motion.button>
+            <motion.button
+              onClick={() => onNavigate('resources')}
+              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white/10 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Download Insights
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* Stats Section */}
@@ -103,18 +112,6 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors cursor-pointer">
-          <span className="text-sm">Scroll to discover more</span>
-          <ChevronDown className="w-6 h-6" />
-        </div>
-      </motion.div>
     </section>
   );
 }

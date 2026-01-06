@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export function ExpertiseHero() {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-20 md:pt-32 pb-12 md:pb-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#003366] via-[#003366]/95 to-[#339966]/90 z-10" />
@@ -22,7 +22,7 @@ export function ExpertiseHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ export function ExpertiseHero() {
           </p>
 
           {/* Key Highlights */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
             {[
               { number: '5', label: 'Core Services' },
               { number: '200+', label: 'Successful Projects' },

@@ -43,8 +43,8 @@ export function OfficeLocations() {
   ];
 
   return (
-    <section className="py-20 bg-[#F0F2F5]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-12 md:py-20 bg-[#F0F2F5]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export function OfficeLocations() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
           {offices.map((office, index) => (
             <motion.div
               key={index}
@@ -74,7 +74,7 @@ export function OfficeLocations() {
               {/* Header */}
               <div className={`h-2 bg-gradient-to-r ${office.color}`} />
               
-              <div className="p-8">
+              <div className="p-6 md:p-8">
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <h3 className="text-[#003366] mb-1">{office.city}</h3>
@@ -90,8 +90,8 @@ export function OfficeLocations() {
                       </span>
                     )}
                   </div>
-                  <div className={`w-14 h-14 bg-gradient-to-br ${office.color} rounded-xl flex items-center justify-center`}>
-                    <MapPin className="w-7 h-7 text-white" />
+                  <div className={`w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br ${office.color} rounded-xl flex items-center justify-center`}>
+                    <MapPin className="w-6 md:w-7 h-6 md:h-7 text-white" />
                   </div>
                 </div>
 
