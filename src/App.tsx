@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
@@ -6,44 +7,70 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { ScrollProgress } from './components/ScrollProgress';
 import { CookieConsent } from './components/CookieConsent';
 import { NewsletterPopup } from './components/NewsletterPopup';
-import { HomePage } from './pages/HomePage';
-import { ExpertisePage } from './pages/ExpertisePage';
-import { AboutPage } from './pages/AboutPage';
-import { ResourcesPage } from './pages/ResourcesPage';
-import { ContactPage } from './pages/ContactPage';
-import { TeamPage } from './pages/TeamPage';
-import { CaseStudiesPage } from './pages/CaseStudiesPage';
-// ServiceDetailsPage removed per request
+import { PageLoader } from './components/LoadingSpinner';
 
+// Lazy load pages for code splitting
+const HomePage = lazy(() => import('./pages/HomePage').then(module => ({ default: module.HomePage })));
+const ExpertisePage = lazy(() => import('./pages/ExpertisePage').then(module => ({ default: module.ExpertisePage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then(module => ({ default: module.AboutPage })));
+const ResourcesPage = lazy(() => import('./pages/ResourcesPage').then(module => ({ default: module.ResourcesPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(module => ({ default: module.ContactPage })));
+const TeamPage = lazy(() => import('./pages/TeamPage').then(module => ({ default: module.TeamPage })));
+const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage').then(module => ({ default: module.CaseStudiesPage })));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then(module => ({ default: module.PrivacyPolicyPage })));
+const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage').then(module => ({ default: module.TermsOfServicePage })));
+const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage').then(module => ({ default: module.CookiePolicyPage })));
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies'>('home');
+function AppContent() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavigate = (page: string) => {
-    setCurrentPage(page as any);
+    navigate(`/${page === 'home' ? '' : page}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Map URL path to page name for header
+  const getCurrentPage = () => {
+    const path = location.pathname.slice(1) || 'home';
+    return path as 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies' | 'privacy-policy' | 'terms-of-service' | 'cookie-policy';
   };
 
   return (
     <div className="min-h-screen bg-white">
       <ScrollProgress />
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
+      <Header currentPage={getCurrentPage()} onNavigate={handleNavigate} />
 
       <main>
-        {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
-        {currentPage === 'expertise' && <ExpertisePage onNavigate={handleNavigate} />}
-        {currentPage === 'about' && <AboutPage onNavigate={handleNavigate} />}
-        {currentPage === 'resources' && <ResourcesPage onNavigate={handleNavigate} />}
-        {currentPage === 'team' && <TeamPage onNavigate={handleNavigate} />}
-        {currentPage === 'case-studies' && <CaseStudiesPage onNavigate={handleNavigate} />}
-        {currentPage === 'contact' && <ContactPage />}
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<HomePage onNavigate={handleNavigate} />} />
+            <Route path="/expertise" element={<ExpertisePage onNavigate={handleNavigate} />} />
+            <Route path="/about" element={<AboutPage onNavigate={handleNavigate} />} />
+            <Route path="/resources" element={<ResourcesPage onNavigate={handleNavigate} />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/team" element={<TeamPage onNavigate={handleNavigate} />} />
+            <Route path="/case-studies" element={<CaseStudiesPage onNavigate={handleNavigate} />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+            <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+          </Routes>
+        </Suspense>
       </main>
 
-      <Footer />
+      <Footer onNavigate={handleNavigate} />
       <WhatsAppButton />
       <ScrollToTop />
       <CookieConsent />
       <NewsletterPopup />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }

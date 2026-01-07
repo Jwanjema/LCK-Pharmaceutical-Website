@@ -99,3 +99,5 @@ export function HowWeWork() {
     </section>
   );
 }
+
+export default HowWeWork;

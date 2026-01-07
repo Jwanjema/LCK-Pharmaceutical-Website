@@ -144,3 +144,5 @@ export function TestimonialSection({ onNavigate }: TestimonialSectionProps) {
     </section>
   );
 }
+
+export default TestimonialSection;

@@ -1,14 +1,29 @@
 import { Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
-export function Footer() {
+interface FooterProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
   const quickLinks = [
-    { label: 'Regulatory Affairs', href: '#' },
-    { label: 'Bioequivalence & Clinical PK', href: '#' },
-    { label: 'GMP Auditing & GBT Advisory', href: '#' },
-    { label: 'Training & Capacity Building', href: '#' },
-    { label: 'About Us', href: '#' },
-    { label: 'Resources', href: '#' },
+    { label: 'Regulatory Affairs', page: 'expertise' },
+    { label: 'Bioequivalence & Clinical PK', page: 'expertise' },
+    { label: 'GMP Auditing & GBT Advisory', page: 'expertise' },
+    { label: 'Training & Capacity Building', page: 'expertise' },
+    { label: 'About Us', page: 'about' },
+    { label: 'Resources', page: 'resources' },
   ];
+
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:info@lckpharma.com';
+  };
+
+  const handleLinkClick = (page: string) => {
+    if (onNavigate) {
+      onNavigate(page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <footer className="bg-[#003366] text-white relative overflow-hidden">
@@ -37,13 +52,17 @@ export function Footer() {
               Strengthening regulatory systems and accelerating access to quality medicines through WHO prequalification, GBT maturity assessments, and regulatory capacity building.
             </p>
             <div className="flex gap-3">
-              <button
+              <a
+                href="https://ke.linkedin.com/company/lck-pharmaceutical-consulting"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 hover:bg-[#339966] rounded-full flex items-center justify-center transition-colors"
                 aria-label="Visit LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
-              </button>
+              </a>
               <button
+                onClick={handleEmailClick}
                 className="w-10 h-10 bg-white/10 hover:bg-[#339966] rounded-full flex items-center justify-center transition-colors"
                 aria-label="Send email"
               >
@@ -58,12 +77,12 @@ export function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-gray-300 hover:text-[#FFC300] transition-colors"
+                  <button
+                    onClick={() => handleLinkClick(link.page)}
+                    className="text-sm text-gray-300 hover:text-[#FFC300] transition-colors text-left"
                   >
                     {link.label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -75,9 +94,12 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-gray-300">
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
-                <a href="mailto:info@lckpharma.com" className="hover:text-[#FFC300] transition-colors">
+                <button 
+                  onClick={handleEmailClick}
+                  className="hover:text-[#FFC300] transition-colors text-left"
+                >
                   info@lckpharma.com
-                </a>
+                </button>
               </li>
               <li className="flex items-start gap-2 text-sm text-gray-300">
                 <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
@@ -85,7 +107,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 text-sm text-gray-300">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Nairobi, Kenya<br />Regional Offices Across Africa</span>
+                <span>Rockville, MD, USA & Lavington, Nairobi, Kenya</span>
               </li>
             </ul>
           </div>
@@ -94,29 +116,15 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-[#FFC300]">Connect With Us</h3>
             <div className="bg-white p-3 rounded-lg inline-block">
-              <div className="w-32 h-32 bg-gray-200 flex items-center justify-center">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <rect x="0" y="0" width="15" height="15" fill="#003366" />
-                  <rect x="20" y="0" width="15" height="15" fill="#003366" />
-                  <rect x="40" y="0" width="15" height="15" fill="#003366" />
-                  <rect x="60" y="0" width="15" height="15" fill="#003366" />
-                  <rect x="80" y="0" width="15" height="15" fill="#003366" />
-                  <rect x="0" y="20" width="15" height="15" fill="#003366" />
-                  <rect x="80" y="20" width="15" height="15" fill="#003366" />
-                  <rect x="0" y="40" width="15" height="15" fill="#003366" />
-                  <rect x="40" y="40" width="15" height="15" fill="#003366" />
-                  <rect x="80" y="40" width="15" height="15" fill="#003366" />
-                  <rect x="0" y="60" width="15" height="15" fill="#003366" />
-                  <rect x="80" y="60" width="15" height="15" fill="#003366" />
-                  <rect x="0" y="80" width="15" height="15" fill="#003366" />
-                  <rect x="20" y="80" width="15" height="15" fill="#003366" />
-                  <rect x="40" y="80" width="15" height="15" fill="#003366" />
-                  <rect x="60" y="80" width="15" height="15" fill="#003366" />
-                  <rect x="80" y="80" width="15" height="15" fill="#003366" />
-                </svg>
-              </div>
+              <img 
+                src="https://api.qrserver.com/v1/create-qr-code/?size=128x128&data=https://lckpharmaconsulting.com/&format=png&color=003366"
+                alt="Scan to visit lckpharmaconsulting.com"
+                className="w-32 h-32"
+                loading="lazy"
+              />
             </div>
             <p className="text-xs text-gray-400 mt-2">Scan to visit our website</p>
+            <p className="text-xs text-gray-400">lckpharmaconsulting.com</p>
           </div>
         </div>
 
@@ -126,9 +134,24 @@ export function Footer() {
             © {new Date().getFullYear()} LCK Pharmaceutical Consulting. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-gray-400">
-            <button className="hover:text-[#FFC300] transition-colors">Privacy Policy</button>
-            <button className="hover:text-[#FFC300] transition-colors">Terms of Service</button>
-            <button className="hover:text-[#FFC300] transition-colors">Cookie Policy</button>
+            <button 
+              onClick={() => handleLinkClick('privacy-policy')}
+              className="hover:text-[#FFC300] transition-colors"
+            >
+              Privacy Policy
+            </button>
+            <button 
+              onClick={() => handleLinkClick('terms-of-service')}
+              className="hover:text-[#FFC300] transition-colors"
+            >
+              Terms of Service
+            </button>
+            <button 
+              onClick={() => handleLinkClick('cookie-policy')}
+              className="hover:text-[#FFC300] transition-colors"
+            >
+              Cookie Policy
+            </button>
           </div>
         </div>
       </div>

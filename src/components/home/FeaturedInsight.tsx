@@ -145,3 +145,5 @@ export function FeaturedInsight() {
     </section>
   );
 }
+
+export default FeaturedInsight;

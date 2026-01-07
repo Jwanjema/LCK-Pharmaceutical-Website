@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
 
 interface HeaderProps {
-  currentPage: 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies';
+  currentPage: 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies' | 'privacy-policy' | 'terms-of-service' | 'cookie-policy';
   onNavigate: (page: string) => void;
 }
 

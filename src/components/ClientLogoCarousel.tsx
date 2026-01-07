@@ -159,3 +159,5 @@ export function ClientLogoCarousel() {
     </section>
   );
 }
+
+export default ClientLogoCarousel;

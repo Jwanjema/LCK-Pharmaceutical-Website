@@ -182,3 +182,5 @@ export function GeographicFocus() {
     </section>
   );
 }
+
+export default GeographicFocus;

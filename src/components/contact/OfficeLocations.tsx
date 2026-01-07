@@ -4,41 +4,28 @@ import { MapPin, Phone, Mail, Globe } from 'lucide-react';
 export function OfficeLocations() {
   const offices = [
     {
-      city: 'Nairobi',
-      country: 'Kenya',
-      type: 'Headquarters',
-      address: 'Westlands Business Park, Nairobi',
-      phone: '+254 XXX XXX XXX',
-      email: 'nairobi@lckpharma.com',
+      city: 'Rockville',
+      country: 'United States',
+      state: 'Maryland',
+      type: 'Primary Office',
+      address: 'Rockville, MD 20852, US',
+      phone: '+1 XXX XXX XXXX',
+      email: 'info@lckpharma.com',
       color: 'from-blue-500 to-cyan-500',
       featured: true,
+      mapLink: 'https://maps.google.com/?q=Rockville,MD+20852',
     },
     {
-      city: 'Kampala',
-      country: 'Uganda',
-      type: 'Regional Office',
-      address: 'Kololo, Kampala',
-      phone: '+256 XXX XXX XXX',
-      email: 'kampala@lckpharma.com',
-      color: 'from-purple-500 to-pink-500',
-    },
-    {
-      city: 'Lagos',
-      country: 'Nigeria',
-      type: 'Regional Office',
-      address: 'Victoria Island, Lagos',
-      phone: '+234 XXX XXX XXX',
-      email: 'lagos@lckpharma.com',
+      city: 'Nairobi',
+      country: 'Kenya',
+      area: 'Lavington',
+      type: 'Office',
+      address: 'Lavington, Nairobi, KE',
+      phone: '+254 XXX XXX XXX',
+      email: 'nairobi@lckpharma.com',
       color: 'from-green-500 to-emerald-500',
-    },
-    {
-      city: 'Johannesburg',
-      country: 'South Africa',
-      type: 'Regional Office',
-      address: 'Sandton, Johannesburg',
-      phone: '+27 XXX XXX XXX',
-      email: 'joburg@lckpharma.com',
-      color: 'from-orange-500 to-red-500',
+      featured: true,
+      mapLink: 'https://maps.google.com/?q=Lavington,Nairobi,Kenya',
     },
   ];
 
@@ -54,11 +41,11 @@ export function OfficeLocations() {
         >
           <h2 className="text-[#003366] mb-4">Our Locations</h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            With regional offices across Africa, we combine local market knowledge with global regulatory expertise to serve you better
+            With offices in the United States and Kenya, we combine global regulatory expertise with local market knowledge
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {offices.map((office, index) => (
             <motion.div
               key={index}
@@ -114,14 +101,17 @@ export function OfficeLocations() {
                   </div>
                 </div>
 
-                <motion.button
+                <motion.a
+                  href={office.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full mt-6 py-3 bg-gray-100 hover:bg-[#339966] hover:text-white text-[#003366] rounded-lg transition-all flex items-center justify-center gap-2"
                 >
                   <Globe className="w-5 h-5" />
                   <span>Get Directions</span>
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           ))}

@@ -154,3 +154,5 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
     </section>
   );
 }
+
+export default ServicesOverview;

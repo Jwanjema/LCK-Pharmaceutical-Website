@@ -8,40 +8,20 @@ interface TeamSectionProps {
 export function TeamSection({ onNavigate }: TeamSectionProps) {
   const team = [
     {
-      name: 'Dr. Loice C. Kikwai',
-      role: 'Founder & Managing Partner',
+      name: 'Loice C. Kikwai, Ph.D.',
+      role: 'Managing Partner',
       expertise: 'FDA Pharmacologist & Global Regulatory Expert',
       bio: 'Former US FDA pharmacologist with 20+ years bridging regulatory science and healthcare access',
+      linkedIn: 'https://www.linkedin.com/in/loice-kikwai-ph-d-b3006b3/',
+      email: 'lckikwai@gmail.com',
     },
     {
-      name: 'Winnie Kipchumba',
+      name: 'Winnie Kipchumba, Bpharm, MPH (Ongoing)',
       role: 'Program Manager',
       expertise: 'Pharmacy & Public Health',
-      bio: 'BPharm, MPH - Passionate for world-class healthcare delivery and regulatory systems',
-    },
-    {
-      name: 'Dr. James Kipchoge',
-      role: 'Head of Regulatory Affairs',
-      expertise: 'WHO PQ & CTD Development',
-      bio: 'Expert in eCTD compilation and WHO prequalification pathways for 15+ countries',
-    },
-    {
-      name: 'Dr. Sarah Mwangi',
-      role: 'Clinical & BE Specialist',
-      expertise: 'Bioequivalence Studies & Clinical Pharmacokinetics',
-      bio: 'Led 50+ BE study designs and evaluations across East Africa and Middle East',
-    },
-    {
-      name: 'Michael Koech',
-      role: 'GMP & Quality Systems Lead',
-      expertise: 'GMP Auditing & Quality Risk Management',
-      bio: 'Former regulatory inspector; conducted 200+ GMP audits and gap assessments',
-    },
-    {
-      name: 'David Njoroge',
-      role: 'Training & Capacity Building Director',
-      expertise: 'Professional Development & Knowledge Transfer',
-      bio: 'Designed and delivered training programs for 3000+ regulatory professionals globally',
+      bio: 'Passionate for world-class healthcare delivery and regulatory systems',
+      linkedIn: 'https://www.linkedin.com/in/kipchumba-winnie-8082a22a1',
+      email: 'winniekipchumba@gmail.com',
     },
   ];
 
@@ -55,14 +35,13 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-[#003366] mb-4">Meet Our Expert Team</h2>
+          <h2 className="text-[#003366] mb-4">The team behind our success story.</h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            A diverse group of regulatory professionals with deep expertise across pharmaceutical development, 
-            quality systems, and regulatory affairs
+            Expert regulatory professionals dedicated to advancing healthcare access through pharmaceutical excellence
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
           {team.map((member, index) => (
             <motion.div
               key={index}
@@ -81,12 +60,24 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button className="flex-1 bg-white/20 backdrop-blur-sm rounded-lg p-2 flex items-center justify-center hover:bg-white/30 transition-colors">
-                      <Linkedin className="w-5 h-5 text-white" />
-                    </button>
-                    <button className="flex-1 bg-white/20 backdrop-blur-sm rounded-lg p-2 flex items-center justify-center hover:bg-white/30 transition-colors">
-                      <Mail className="w-5 h-5 text-white" />
-                    </button>
+                    {member.linkedIn && (
+                      <a
+                        href={member.linkedIn}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-white/20 backdrop-blur-sm rounded-lg p-2 flex items-center justify-center hover:bg-white/30 transition-colors"
+                      >
+                        <Linkedin className="w-5 h-5 text-white" />
+                      </a>
+                    )}
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="flex-1 bg-white/20 backdrop-blur-sm rounded-lg p-2 flex items-center justify-center hover:bg-white/30 transition-colors"
+                      >
+                        <Mail className="w-5 h-5 text-white" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
