@@ -123,7 +123,7 @@ export function OfficeLocations() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-lg text-center"
+          className="mt-12 bg-white rounded-2xl p-8 md:p-12 shadow-lg text-center"
         >
           <h3 className="text-[#003366] mb-4">We Also Serve</h3>
           <p className="text-gray-600 mb-6 max-w-3xl mx-auto">

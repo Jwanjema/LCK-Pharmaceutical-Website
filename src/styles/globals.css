@@ -200,3 +200,33 @@
 html {
   font-size: var(--font-size);
 }
+
+/* Professional Custom Cursor Styles */
+* {
+  cursor: default;
+}
+
+a,
+button,
+[role='button'],
+input[type='submit'],
+input[type='button'] {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+a:hover,
+button:hover {
+  transform: translateY(-1px);
+}
+
+input,
+textarea,
+select {
+  cursor: text;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  cursor: pointer;
+}

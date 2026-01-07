@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ExpertiseHero } from '../components/expertise/ExpertiseHero';
 import { ServicesNavigation } from '../components/expertise/ServiceSection';
 import { ServiceSection } from '../components/expertise/ServiceNavigation';
@@ -10,7 +11,30 @@ interface ExpertisePageProps {
 }
 
 export function ExpertisePage({ onNavigate }: ExpertisePageProps) {
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState('regulatory');
+
+  // Scroll to section from hash on mount
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      // Wait for page to fully render
+      const timer = setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+          setActiveSection(id);
+        }
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash]);
 
   useEffect(() => {
     const handleScroll = () => {

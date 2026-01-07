@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
 
 interface HeaderProps {
-  currentPage: 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies' | 'privacy-policy' | 'terms-of-service' | 'cookie-policy';
+  currentPage: 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'case-studies' | 'privacy-policy' | 'terms-of-service' | 'cookie-policy';
   onNavigate: (page: string) => void;
 }
 
@@ -22,10 +22,9 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'expertise', label: 'Expertise' },
-    { id: 'about', label: 'About Us' },
     { id: 'resources', label: 'Resources' },
-    { id: 'team', label: 'Team' },
     { id: 'case-studies', label: 'Case Studies' },
+    { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
   ];
 

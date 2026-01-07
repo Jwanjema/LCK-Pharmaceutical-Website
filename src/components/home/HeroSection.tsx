@@ -59,7 +59,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            Led by Former US FDA Pharmacologist Since 2005
+            Trusted Regulatory Excellence Since 2005
           </motion.div>
 
           <h1 className="text-white mb-4 max-w-5xl mx-auto">
@@ -72,7 +72,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <motion.button
-              onClick={() => onNavigate('expertise')}
+              onClick={() => onNavigate('expertise', 'regulatory')}
               className="px-8 py-4 bg-[#FFC300] text-[#003366] rounded-lg shadow-xl hover:shadow-2xl transition-all"
               whileHover={{ scale: 1.05, backgroundColor: '#FF5733', color: '#ffffff' }}
               whileTap={{ scale: 0.95 }}

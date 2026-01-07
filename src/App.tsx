@@ -15,7 +15,6 @@ const ExpertisePage = lazy(() => import('./pages/ExpertisePage').then(module => 
 const AboutPage = lazy(() => import('./pages/AboutPage').then(module => ({ default: module.AboutPage })));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage').then(module => ({ default: module.ResourcesPage })));
 const ContactPage = lazy(() => import('./pages/ContactPage').then(module => ({ default: module.ContactPage })));
-const TeamPage = lazy(() => import('./pages/TeamPage').then(module => ({ default: module.TeamPage })));
 const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage').then(module => ({ default: module.CaseStudiesPage })));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then(module => ({ default: module.PrivacyPolicyPage })));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage').then(module => ({ default: module.TermsOfServicePage })));
@@ -25,15 +24,20 @@ function AppContent() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavigate = (page: string) => {
-    navigate(`/${page === 'home' ? '' : page}`);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleNavigate = (page: string, sectionId?: string) => {
+    const path = page === 'home' ? '' : page;
+    if (sectionId) {
+      navigate(`/${path}#${sectionId}`);
+    } else {
+      navigate(`/${path}`);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   // Map URL path to page name for header
   const getCurrentPage = () => {
     const path = location.pathname.slice(1) || 'home';
-    return path as 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'team' | 'case-studies' | 'privacy-policy' | 'terms-of-service' | 'cookie-policy';
+    return path as 'home' | 'expertise' | 'about' | 'resources' | 'contact' | 'case-studies' | 'privacy-policy' | 'terms-of-service' | 'cookie-policy';
   };
 
   return (
@@ -49,7 +53,6 @@ function AppContent() {
             <Route path="/about" element={<AboutPage onNavigate={handleNavigate} />} />
             <Route path="/resources" element={<ResourcesPage onNavigate={handleNavigate} />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/team" element={<TeamPage onNavigate={handleNavigate} />} />
             <Route path="/case-studies" element={<CaseStudiesPage onNavigate={handleNavigate} />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-of-service" element={<TermsOfServicePage />} />

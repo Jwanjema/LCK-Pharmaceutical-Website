@@ -1,15 +1,15 @@
 import { Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 interface FooterProps {
-  onNavigate?: (page: string) => void;
+  onNavigate?: (page: string, sectionId?: string) => void;
 }
 
 export function Footer({ onNavigate }: FooterProps) {
   const quickLinks = [
-    { label: 'Regulatory Affairs', page: 'expertise' },
-    { label: 'Bioequivalence & Clinical PK', page: 'expertise' },
-    { label: 'GMP Auditing & GBT Advisory', page: 'expertise' },
-    { label: 'Training & Capacity Building', page: 'expertise' },
+    { label: 'Regulatory Affairs', page: 'expertise', sectionId: 'regulatory' },
+    { label: 'Bioequivalence & Clinical PK', page: 'expertise', sectionId: 'clinical' },
+    { label: 'GMP Auditing & GBT Advisory', page: 'expertise', sectionId: 'compliance' },
+    { label: 'Training & Capacity Building', page: 'expertise', sectionId: 'training' },
     { label: 'About Us', page: 'about' },
     { label: 'Resources', page: 'resources' },
   ];
@@ -18,10 +18,9 @@ export function Footer({ onNavigate }: FooterProps) {
     window.location.href = 'mailto:info@lckpharma.com';
   };
 
-  const handleLinkClick = (page: string) => {
+  const handleLinkClick = (page: string, sectionId?: string) => {
     if (onNavigate) {
-      onNavigate(page);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      onNavigate(page, sectionId);
     }
   };
 
@@ -78,7 +77,7 @@ export function Footer({ onNavigate }: FooterProps) {
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
-                    onClick={() => handleLinkClick(link.page)}
+                    onClick={() => handleLinkClick(link.page, link.sectionId)}
                     className="text-sm text-gray-300 hover:text-[#FFC300] transition-colors text-left"
                   >
                     {link.label}

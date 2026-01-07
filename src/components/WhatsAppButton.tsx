@@ -1,10 +1,30 @@
 import { motion } from 'framer-motion';
 import { MessageCircle, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
   const phoneNumber = '254702890446'; // LCK WhatsApp Business Number
+  
+  // Close popup when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        popupRef.current &&
+        buttonRef.current &&
+        !popupRef.current.contains(event.target as Node) &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
   
   const predefinedMessages = [
     {
@@ -39,7 +59,8 @@ export function WhatsAppButton() {
     <>
       {/* Floating WhatsApp Button */}
       <motion.div
-        className="fixed bottom-6 right-6 z-50"
+        ref={buttonRef}
+        className="fixed bottom-24 right-6 z-50"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 1, type: 'spring', stiffness: 260, damping: 20 }}
@@ -91,6 +112,7 @@ export function WhatsAppButton() {
       {/* Message Options Popup */}
       {isOpen && (
         <motion.div
+          ref={popupRef}
           initial={{ opacity: 0, y: 20, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.9 }}

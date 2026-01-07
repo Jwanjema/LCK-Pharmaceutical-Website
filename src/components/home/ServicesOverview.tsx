@@ -35,6 +35,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'bg-blue-50',
       hoverColor: 'group-hover:bg-blue-500',
+      sectionId: 'regulatory',
     },
     {
       icon: FlaskConical,
@@ -43,6 +44,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
       color: 'from-purple-500 to-pink-500',
       bgColor: 'bg-purple-50',
       hoverColor: 'group-hover:bg-purple-500',
+      sectionId: 'clinical',
     },
     {
       icon: ShieldCheck,
@@ -51,6 +53,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
       color: 'from-green-500 to-emerald-500',
       bgColor: 'bg-green-50',
       hoverColor: 'group-hover:bg-green-500',
+      sectionId: 'compliance',
     },
     {
       icon: GraduationCap,
@@ -59,6 +62,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
       color: 'from-orange-500 to-yellow-500',
       bgColor: 'bg-orange-50',
       hoverColor: 'group-hover:bg-orange-500',
+      sectionId: 'training',
     },
   ];
 
@@ -100,7 +104,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
                   <p className="text-gray-600 mb-6 flex-grow">{service.description}</p>
 
                   <button
-                    onClick={() => onNavigate('expertise')}
+                    onClick={() => onNavigate('expertise', service.sectionId)}
                     className="flex items-center gap-2 text-[#339966] group-hover:text-[#FFC300] transition-colors text-sm"
                   >
                     <span>Learn More</span>
@@ -127,7 +131,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
                   Supporting NRAs in achieving WHO GBT maturity levels and long-term sustainability. Strategic guidance for governments, donors, and partners on pharmaceutical policy frameworks.
                 </p>
                 <button
-                  onClick={() => onNavigate('expertise')}
+                  onClick={() => onNavigate('expertise', 'systems')}
                   className="px-6 py-3 bg-[#FFC300] text-[#003366] rounded-lg hover:bg-white transition-colors shadow-lg flex items-center gap-2"
                 >
                   <span>Explore Our Impact</span>
