@@ -67,7 +67,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           </h1>
 
           <p className="text-lg text-gray-200 mb-6 max-w-3xl mx-auto">
-            We are a Regulatory Affairs Consultancy dedicated to helping companies, manufacturers, and national regulatory authorities in low- and middle-income countries navigate complex compliance requirements, strengthen regulatory systems, and achieve international approvals such as WHO prequalification—enabling safe, effective, and high-quality medicines to reach the market faster while meeting the highest global standards.
+            We are a Regulatory Affairs Consultancy dedicated to helping companies, manufacturers, and national regulatory authorities in low and middle-income countries navigate complex compliance requirements, strengthen regulatory systems, and achieve international approvals such as WHO prequalification enabling safe, effective, and high-quality medicines to reach the market faster while meeting the highest global standards.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
