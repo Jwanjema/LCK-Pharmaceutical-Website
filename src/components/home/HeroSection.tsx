@@ -72,7 +72,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <motion.button
-              onClick={() => onNavigate('expertise', 'regulatory')}
+              onClick={() => onNavigate('expertise')}
               className="px-8 py-4 bg-[#FFC300] text-[#003366] rounded-lg shadow-xl hover:shadow-2xl transition-all"
               whileHover={{ scale: 1.05, backgroundColor: '#FF5733', color: '#ffffff' }}
               whileTap={{ scale: 0.95 }}
