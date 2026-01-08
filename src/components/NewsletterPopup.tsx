@@ -77,15 +77,15 @@ export function NewsletterPopup() {
             exit={{ scale: 0.8, opacity: 0, y: 20 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden relative"
           >
-            {/* Close Button */}
+            {/* Close Button - Enhanced for easier closing */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
-              aria-label="Close"
+              className="absolute top-3 right-3 z-10 w-12 h-12 md:w-10 md:h-10 rounded-full bg-white shadow-lg hover:shadow-xl hover:bg-gray-50 flex items-center justify-center transition-all transform hover:scale-110 active:scale-95"
+              aria-label="Close newsletter popup"
             >
-              <X className="w-5 h-5 text-gray-500" />
+              <X className="w-6 h-6 md:w-5 md:h-5 text-gray-700 font-bold" />
             </button>
 
             {!isSubmitted ? (
@@ -160,10 +160,17 @@ export function NewsletterPopup() {
                     </motion.button>
                   </form>
 
-                  {/* Privacy Notice */}
+                  {/* Privacy Notice & Skip Option */}
                   <p className="text-xs text-gray-500 text-center mt-4">
                     We respect your privacy. Unsubscribe anytime.
                   </p>
+                  
+                  <button
+                    onClick={handleClose}
+                    className="w-full mt-3 py-2 text-gray-500 hover:text-gray-700 text-sm font-medium transition-colors hover:underline"
+                  >
+                    Maybe later
+                  </button>
                 </div>
               </>
             ) : (
