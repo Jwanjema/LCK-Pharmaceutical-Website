@@ -28,7 +28,7 @@ export function ServiceSection({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="scroll-mt-32 bg-white rounded-2xl shadow-lg p-6 md:p-12 mb-8"
+      className="scroll-mt-32 bg-white/80 backdrop-blur-md rounded-2xl shadow-lg p-6 md:p-12 mb-8 border border-gray-200/50"
     >
       {/* Header */}
       <div className="mb-8">

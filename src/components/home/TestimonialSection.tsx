@@ -67,7 +67,7 @@ export function TestimonialSection({ onNavigate }: TestimonialSectionProps) {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-md hover:shadow-2xl transition-all"
+              className="bg-white/80 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-md hover:shadow-2xl transition-all border border-gray-200/50"
             >
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#003366] to-[#339966] rounded-full flex items-center justify-center flex-shrink-0">

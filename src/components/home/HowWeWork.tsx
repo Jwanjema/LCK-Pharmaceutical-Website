@@ -57,7 +57,7 @@ export function HowWeWork() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-200 h-full">
+                <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-200/50 h-full">
                   {/* Step Number */}
                   <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#FFC300] rounded-full flex items-center justify-center text-[#003366] font-bold text-xl shadow-lg">
                     {index + 1}

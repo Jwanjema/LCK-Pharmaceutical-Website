@@ -209,7 +209,7 @@ export function ContactForm() {
             </div>
 
             {/* Office Hours */}
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200">
+            <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200/50">
               <h3 className="text-[#003366] mb-6">Office Hours</h3>
               <div className="space-y-3">
                 <div className="flex justify-between pb-3 border-b border-gray-200">

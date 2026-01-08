@@ -83,7 +83,7 @@ export function GeographicFocus() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
+            <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-gray-200/50">
               <div className="relative w-full aspect-square">
                 {/* Stylized Map Background */}
                 <img

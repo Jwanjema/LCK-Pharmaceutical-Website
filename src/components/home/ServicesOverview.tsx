@@ -104,7 +104,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
                   <p className="text-gray-600 mb-6 flex-grow">{service.description}</p>
 
                   <button
-                    onClick={() => onNavigate('expertise', service.sectionId)}
+                    onClick={() => onNavigate('expertise')}
                     className="flex items-center gap-2 text-[#339966] group-hover:text-[#FFC300] transition-colors text-sm"
                   >
                     <span>Learn More</span>
@@ -131,7 +131,7 @@ export function ServicesOverview({ onNavigate }: ServicesOverviewProps) {
                   Supporting NRAs in achieving WHO GBT maturity levels and long-term sustainability. Strategic guidance for governments, donors, and partners on pharmaceutical policy frameworks.
                 </p>
                 <button
-                  onClick={() => onNavigate('expertise', 'systems')}
+                  onClick={() => onNavigate('expertise')}
                   className="px-6 py-3 bg-[#FFC300] text-[#003366] rounded-lg hover:bg-white transition-colors shadow-lg flex items-center gap-2"
                 >
                   <span>Explore Our Impact</span>

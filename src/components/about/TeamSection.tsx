@@ -52,7 +52,7 @@ export function TeamSection({ onNavigate }: TeamSectionProps) {
               whileHover={{ y: -8 }}
               className="group"
             >
-              <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all border border-gray-200 hover:border-[#339966]">
+              <div className="bg-white/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all border border-gray-200/50 hover:border-[#339966]">
                 {/* Avatar */}
                 <div className="aspect-square bg-gradient-to-br from-[#003366] to-[#339966] flex items-center justify-center relative overflow-hidden">
                   <div className="text-5xl md:text-6xl text-white/80">

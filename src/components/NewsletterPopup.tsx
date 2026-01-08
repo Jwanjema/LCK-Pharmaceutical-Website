@@ -77,7 +77,7 @@ export function NewsletterPopup() {
             exit={{ scale: 0.8, opacity: 0, y: 20 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden relative"
+            className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl max-w-md w-full overflow-hidden relative"
           >
             {/* Close Button - Enhanced for easier closing */}
             <button

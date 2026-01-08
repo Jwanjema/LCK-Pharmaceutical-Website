@@ -54,7 +54,7 @@ export function OfficeLocations() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className={`bg-white rounded-2xl shadow-md hover:shadow-xl transition-all overflow-hidden ${
+              className={`bg-white/80 backdrop-blur-md rounded-2xl shadow-md hover:shadow-xl transition-all overflow-hidden border border-gray-200/50 ${
                 office.featured ? 'md:col-span-2 lg:col-span-1' : ''
               }`}
             >

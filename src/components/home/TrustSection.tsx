@@ -86,7 +86,7 @@ export function TrustSection() {
               whileHover={{ scale: 1.08, y: -8 }}
               className="group"
             >
-              <div className="bg-white rounded-xl p-4 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 h-full flex flex-col items-center justify-center cursor-pointer border border-gray-200 hover:border-[#339966] relative overflow-hidden">
+              <div className="bg-white/80 backdrop-blur-md rounded-xl p-4 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 h-full flex flex-col items-center justify-center cursor-pointer border border-gray-200/50 hover:border-[#339966] relative overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300" 
                   style={{
