@@ -43,7 +43,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
           <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#003366] to-[#339966] rounded-lg flex items-center justify-center">
             <span className="text-white text-sm md:text-base">LCK</span>
           </div>
-          <div className="hidden sm:block">
+          <div>
             <div className="text-[#003366] text-sm md:text-base">LCK Pharmaceutical</div>
             <div className="text-[#339966] text-xs md:text-sm">Consulting</div>
           </div>
