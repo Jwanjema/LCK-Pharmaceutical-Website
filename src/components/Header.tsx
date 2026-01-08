@@ -39,7 +39,11 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
     >
       <div className="relative max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <button 
+          onClick={() => onNavigate('home')}
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          aria-label="Go to home page"
+        >
           <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#003366] to-[#339966] rounded-lg flex items-center justify-center">
             <span className="text-white text-sm md:text-base">LCK</span>
           </div>
@@ -47,7 +51,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
             <div className="text-[#003366] text-sm md:text-base">LCK Pharmaceutical</div>
             <div className="text-[#339966] text-xs md:text-sm">Consulting</div>
           </div>
-        </div>
+        </button>
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-6">
