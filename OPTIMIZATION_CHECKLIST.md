@@ -116,3 +116,4 @@
 - Development mode includes performance logging
 - Service Worker requires HTTPS in production
 - Web Vitals data logged to console in dev mode
+  ..
